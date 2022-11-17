@@ -22,7 +22,16 @@ section .text
     ret
 
 _contraste:
+vmovups ymm0, [rcx]
+mov r9b, 0 
+ciclo:
+	vpaddusb ymm0, ymm0, ymm0
+	inc r9b
+	cmp r9b, 6 
+	jl ciclo
 
+vmovups [rcx], ymm0
+ret
 
 _negativo:
 	subq 32, rsp
@@ -39,6 +48,22 @@ _negativo:
 	ret
 
 
-_escalado:
+_espejado:
+vmovups xmm0, [rcx+15]
+vmovups [rcx+16], xmm0
+vmovups ymm0, [rcx]
+mov al, 0
+mov [aux], al
+vpbroadcastb ymm2, [aux]
+
+mov al, 0
+mov [aux], al
+vpbroadcastb ymm1, [aux]
+mov bl, 0
+
+cicloEspejado: 
+vmovups [aux2], ymm0 
+; falta
+
 
 
