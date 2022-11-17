@@ -3,14 +3,14 @@
 #include <string>
 
 int main() {
-	int ancho = 200;
-	int alto = 300;
+	int ancho = 271;
+	int alto = 271;
 
 	Imagen img(ancho, alto);
 	Color rgb = Color();
 	for (int y = 0; y < alto; y++) {
 		for (int x = 0; x < ancho; x++) {
-			rgb.colorcito(255, 1, 2);
+			rgb.colorcito(x, x+1, x+2);
 			img.setColor(rgb, x, y);
 		}
 	}

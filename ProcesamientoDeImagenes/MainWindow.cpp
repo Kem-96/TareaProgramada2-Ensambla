@@ -1,6 +1,7 @@
 #include "MainWindow.hpp"
 #include "ui_MainWindow.h"
 #include <iostream>
+#include <string>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -8,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    QString url = R"(C:\Users\Invita2\Desktop\image2.bmp)";
+    QString url = R"(..\BMP rw\prueba.bmp)";
     QPixmap img(url);
     ui->ImagenOriginal->setPixmap(img);
 }
@@ -18,10 +19,11 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
 void MainWindow::on_BotonAjusteBrillo_clicked()
-{
-    QString url = R"(C:\Users\Invita2\Desktop\image2.bmp)";
+{    
+    std::string dato = "C:/Users/c04813/Downloads/TareaProgramada2-Ensambla-main/TareaProgramada2-Ensambla-main/BMP rw/Copia - prueba.bmp";
+    //QString::fromStdString(dato);
+    QString url(dato.c_str());
     QPixmap img(url);
     ui->imagenFiltro->setPixmap(img);
     std::cerr << "hola" <<std::endl;
