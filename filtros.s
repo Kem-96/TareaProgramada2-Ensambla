@@ -28,28 +28,21 @@ section .text
 	vmovups [rcx], ymm2
 	ret
 
-_contraste:
-	vmovups ymm0, [rcx]
-	mov r9b, 0 
-	ciclo:
-		vpaddusb ymm0, ymm0, ymm0
-		inc r9b
-		cmp r9b, 6 
-		jl ciclo
-
-	vmovups [rcx], ymm0
-	ret
-
 _negativo:
 	mov rcx, [colores]
 	vmovups ymm0, [rcx]
-	vpbroadcastb ymm1, byte 255
+	mov [brillosito], byte 255
+	vpbroadcastb ymm1, [brillosito]
 	vpsubusb ymm2, ymm1, ymm0
 	vmovups [rcx], ymm2
 	ret
 
+_contraste:
+	mov rcx, [colores]
+	vmovups ymm0, [rcx]
 
-
+	ret
+_factorDeCorreccion:
 _escalado:
 
 

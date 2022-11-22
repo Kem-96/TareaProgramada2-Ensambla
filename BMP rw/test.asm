@@ -26,7 +26,8 @@ inicio:
 negativo:
 	mov rcx, [colores]
 	vmovups ymm0, [rcx]
-	vpbroadcastb ymm1, byte 255
+	mov [brillosito], byte 255
+	vpbroadcastb ymm1, [brillosito]
 	vpsubusb ymm2, ymm1, ymm0
 	vmovups [rcx], ymm2
 	ret
