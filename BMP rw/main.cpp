@@ -9,7 +9,9 @@ using namespace std;
 vector<Color> colores;
 int brillosito = 0;
 
+
 extern "C" char inicio();
+extern "C" char negativo();
 
 int main() {
 	int ancho = 271;

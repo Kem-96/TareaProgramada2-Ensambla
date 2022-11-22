@@ -6,19 +6,110 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>773</width>
-    <height>507</height>
+    <width>790</width>
+    <height>543</height>
    </rect>
   </property>
+  <property name="palette">
+   <palette>
+    <active>
+     <colorrole role="Button">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Text">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </active>
+    <inactive>
+     <colorrole role="Button">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>240</red>
+        <green>240</green>
+        <blue>240</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Text">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>240</red>
+        <green>240</green>
+        <blue>240</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </inactive>
+    <disabled>
+     <colorrole role="Button">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Text">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>120</red>
+        <green>120</green>
+        <blue>120</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </disabled>
+   </palette>
+  </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Procesador de imagenes</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="BotonAjusteBrillo">
     <property name="geometry">
      <rect>
-      <x>620</x>
-      <y>170</y>
+      <x>640</x>
+      <y>180</y>
       <width>91</width>
       <height>31</height>
      </rect>
@@ -38,8 +129,8 @@
    <widget class="QPushButton" name="BotonContraste">
     <property name="geometry">
      <rect>
-      <x>620</x>
-      <y>210</y>
+      <x>640</x>
+      <y>220</y>
       <width>91</width>
       <height>31</height>
      </rect>
@@ -60,8 +151,8 @@
    <widget class="QPushButton" name="BotonNegativo">
     <property name="geometry">
      <rect>
-      <x>620</x>
-      <y>250</y>
+      <x>640</x>
+      <y>260</y>
       <width>91</width>
       <height>31</height>
      </rect>
@@ -79,8 +170,8 @@
    <widget class="QPushButton" name="BotonEscalado">
     <property name="geometry">
      <rect>
-      <x>620</x>
-      <y>290</y>
+      <x>640</x>
+      <y>300</y>
       <width>93</width>
       <height>29</height>
      </rect>
@@ -98,8 +189,8 @@
    <widget class="QPushButton" name="BotonEspejado">
     <property name="geometry">
      <rect>
-      <x>620</x>
-      <y>330</y>
+      <x>640</x>
+      <y>340</y>
       <width>93</width>
       <height>29</height>
      </rect>
@@ -117,8 +208,8 @@
    <widget class="QLabel" name="label_imagenOriginal">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>110</y>
+      <x>90</x>
+      <y>90</y>
       <width>131</width>
       <height>21</height>
      </rect>
@@ -136,8 +227,8 @@
    <widget class="QLabel" name="label_ImagenFiltro">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>110</y>
+      <x>380</x>
+      <y>90</y>
       <width>151</width>
       <height>21</height>
      </rect>
@@ -155,8 +246,8 @@
    <widget class="QPushButton" name="BotonSalir">
     <property name="geometry">
      <rect>
-      <x>620</x>
-      <y>370</y>
+      <x>640</x>
+      <y>380</y>
       <width>93</width>
       <height>29</height>
      </rect>
@@ -175,9 +266,9 @@
    <widget class="QLabel" name="label_Titulo">
     <property name="geometry">
      <rect>
-      <x>180</x>
+      <x>200</x>
       <y>30</y>
-      <width>361</width>
+      <width>261</width>
       <height>41</height>
      </rect>
     </property>
@@ -197,13 +288,13 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>160</y>
+      <y>140</y>
       <width>271</width>
       <height>271</height>
      </rect>
     </property>
     <property name="frameShape">
-     <enum>QFrame::Box</enum>
+     <enum>QFrame::StyledPanel</enum>
     </property>
     <property name="text">
      <string/>
@@ -212,8 +303,8 @@
    <widget class="QLabel" name="label_tiposFiltros">
     <property name="geometry">
      <rect>
-      <x>590</x>
-      <y>110</y>
+      <x>620</x>
+      <y>90</y>
       <width>141</width>
       <height>21</height>
      </rect>
@@ -232,17 +323,30 @@
    <widget class="QLabel" name="imagenFiltro">
     <property name="geometry">
      <rect>
-      <x>330</x>
-      <y>160</y>
+      <x>320</x>
+      <y>140</y>
       <width>271</width>
       <height>271</height>
      </rect>
     </property>
     <property name="frameShape">
-     <enum>QFrame::Box</enum>
+     <enum>QFrame::StyledPanel</enum>
     </property>
     <property name="text">
      <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="buton_elegirImagen">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>140</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Elegir Imagen</string>
     </property>
    </widget>
   </widget>
@@ -251,11 +355,29 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>773</width>
+     <width>790</width>
      <height>26</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuArchivo">
+    <property name="title">
+     <string>Archivo</string>
+    </property>
+    <addaction name="actionAbrir_imagen"/>
+    <addaction name="actionSalir"/>
+   </widget>
+   <addaction name="menuArchivo"/>
   </widget>
+  <action name="actionAbrir_imagen">
+   <property name="text">
+    <string>Abrir imagen...</string>
+   </property>
+  </action>
+  <action name="actionSalir">
+   <property name="text">
+    <string>Salir</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

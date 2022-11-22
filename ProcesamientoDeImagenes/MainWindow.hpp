@@ -22,6 +22,8 @@ private slots:
 
     void on_BotonSalir_clicked();
 
+    void on_buton_elegirImagen_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

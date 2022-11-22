@@ -1,11 +1,13 @@
 bits 64
 default rel
 
-global inicio
+global inicio, negativo
+
 
 section .data
 	extern colores
 	extern brillosito
+	
 
 section .bss
 
@@ -18,6 +20,14 @@ inicio:
 	mov [brillosito], byte 20
 	vpbroadcastb ymm1, [brillosito]
 	vpaddusb ymm2, ymm1, ymm0
+	vmovups [rcx], ymm2
+	ret
+
+negativo:
+	mov rcx, [colores]
+	vmovups ymm0, [rcx]
+	vpbroadcastb ymm1, byte 255
+	vpsubusb ymm2, ymm1, ymm0
 	vmovups [rcx], ymm2
 	ret
 
