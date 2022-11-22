@@ -30,3 +30,4 @@
 *.exe
 *.out
 *.app
+BMP rw/asmtest.exe.stackdump
