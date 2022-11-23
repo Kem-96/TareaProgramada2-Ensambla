@@ -3,7 +3,7 @@
 #include <string>
 #include <QFileDialog>
 #include <QMessageBox>
-#include "imagen.h"
+#include "imagen.hpp"
 #include <iostream>
 #include <string>
 #include <vector>
