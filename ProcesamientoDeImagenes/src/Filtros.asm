@@ -13,7 +13,7 @@ section .data
 section .bss
 	factorCorreccion resb 1
 	x1 resb 1
-	maskI resb 
+
 
 
 section .text
@@ -64,6 +64,10 @@ negativo:
 	vpsubusb ymm2, ymm1, ymm0
 	vmovups [rcx+r9], ymm2
 	ret
+
+fin:
+	ret
+
 
 
 

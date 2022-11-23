@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>793</width>
+    <width>909</width>
     <height>512</height>
    </rect>
   </property>
@@ -352,10 +352,10 @@
    <widget class="QSlider" name="horizontalSlider">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>440</y>
-      <width>160</width>
-      <height>22</height>
+      <x>750</x>
+      <y>190</y>
+      <width>91</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="orientation">
@@ -368,7 +368,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>793</width>
+     <width>909</width>
      <height>26</height>
     </rect>
    </property>

@@ -13,6 +13,7 @@ section .data
 section .bss
 	factorCorreccion resb 1
 	x1 resb 1
+	maskI resb 
 
 
 section .text
@@ -71,6 +72,8 @@ contraste:
 	; contraste
 	mov rcx, [colores]
 	vmovups ymm3, [rcx + r9]
+	
+	;Acomodando para dar corrimiento al registro 
 	mov [factorCorreccion], byte 255
 	vpbroadcastb ymm2, [factorCorreccion]
 	mov [x1], byte 128
