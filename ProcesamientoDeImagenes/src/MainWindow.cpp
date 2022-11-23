@@ -59,8 +59,8 @@ void MainWindow::on_BotonAjusteBrillo_clicked()
 
     brilloAux();
     abrido.getPixeles() = colores;
-    //abrido.setMatrix(colores);
-    abrido.Exportar(path+"-copia.bmp");
+
+    abrido.Exportar(path + "-copia.bmp");
 
     std::cerr << "hola" <<std::endl;
 }

@@ -26,8 +26,8 @@ SOURCES += \
 
 
 HEADERS += \
-    src/imagen.hpp \
-    src/MainWindow.hpp
+    src/MainWindow.hpp \
+    src/imagen.hpp
 
 FORMS += \
     src/MainWindow.ui
