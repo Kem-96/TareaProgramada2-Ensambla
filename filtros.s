@@ -11,10 +11,12 @@ section .data
 
 	extern colores
 	extern brillosito
+	extern contraste
 	
 section .bss
 
     constante resb 1
+	factorCorreccion resb 1
 
 section .text
 
@@ -28,6 +30,9 @@ section .text
 	vmovups [rcx], ymm2
 	ret
 
+
+
+
 _negativo:
 	mov rcx, [colores]
 	vmovups ymm0, [rcx]
@@ -38,11 +43,38 @@ _negativo:
 	ret
 
 _contraste:
+	;factor de correccion
+	mov r9, 255
+	add r9, [contraste]
+	mul r9, 259
+	mov r8, 259
+	sub r8, [contraste]
+	mul r8, 255
+	mov [factorCorreccion], r8
+	div factorCorreccion, r9
+
+	mov [r10], byte 255
+	add [r10], byte 50
+	mul [r10], byte 255
+	mov [r11], byte 255
+	sub [r11], byte 50
+	mul [r11], byte 255
+	mov [factorCorreccion], r10
+	div [factorCorreccion], r11
+
+	; contraste
 	mov rcx, [colores]
 	vmovups ymm0, [rcx]
+	vpbroadcastb ymm1, [factorCorreccion]
+	vpsubusb ymm0, 128
+	vpmuldq ymm0, ymm1
+	vpaddusb ymm0, 128
 
 	ret
-_factorDeCorreccion:
+
+
+
+
 _escalado:
 
 

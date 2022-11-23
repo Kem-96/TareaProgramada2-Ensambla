@@ -15,6 +15,7 @@ extern "C" char masBrillo();
 extern "C" char menosBrillo();
 extern "C" char negativo();
 extern "C" void brilloAux();
+extern "C" void contraste();
 
 int main() {
 	/*Dimensiones de la imagen.
@@ -67,6 +68,7 @@ int main() {
 	for(int i = 0; i < abrido.getPixeles().size(); i++){
 		printf("%hhu %hhu %hhu\n", abrido.getPixeles()[i].r, abrido.getPixeles()[i].g,abrido.getPixeles()[i].b);
 	}*/
-	
+	int factor = 259*(255+50)/255*(259-50);
+	cout << factor << endl;
 	return 0;
 }

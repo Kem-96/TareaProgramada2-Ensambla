@@ -1,7 +1,7 @@
 bits 64
 default rel
 
-global inicio, masBrillo, menosBrillo, negativo, brilloAux
+global inicio, masBrillo, menosBrillo, negativo, brilloAux, contraste
 
 
 section .data
@@ -11,6 +11,9 @@ section .data
 	extern opt
 	
 section .bss
+	factorCorreccion resb 1
+	x1 resb 1
+
 
 section .text
 
@@ -31,7 +34,7 @@ brilloAux:
 	
 	
 forBrillo:
-	call negativo
+	call contraste
 	add r9, byte 32
 	dec r8
 	jmp brilloAux
@@ -59,6 +62,24 @@ negativo:
 	vpbroadcastb ymm1, [brillosito]
 	vpsubusb ymm2, ymm1, ymm0
 	vmovups [rcx+r9], ymm2
+	ret
+
+contraste:
+	;factor de correccion
+	
+
+	; contraste
+	mov rcx, [colores]
+	vmovups ymm3, [rcx + r9]
+	mov [factorCorreccion], byte 255
+	vpbroadcastb ymm2, [factorCorreccion]
+	mov [x1], byte 128
+	;vpsubusb ymm0, [x1]
+	vpmulhuw ymm1, ymm2, ymm3
+	
+	vpaddusb ymm1, [x1]
+	vmovups [rcx+r9], ymm1
+
 	ret
 
 fin:
