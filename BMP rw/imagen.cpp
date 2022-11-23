@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <vector>
 
 Color::Color() : r(0), g(0), b(0) {}
 
@@ -202,4 +203,20 @@ void Imagen::Exportar(std::string path){
 	arc.close();
 
 	std::cout << "Archivo creado\n";
+}
+
+std::vector<Color>& Imagen::getPixeles(){
+	return this->m_colores;
+}
+
+void Imagen::setMatrix(std::vector<Color> matriz){
+	this->m_colores = matriz;
+}
+
+int Imagen::getAncho(){
+	return this->m_ancho;
+}
+
+int Imagen::getAlto(){
+	return this->m_alto;
 }
