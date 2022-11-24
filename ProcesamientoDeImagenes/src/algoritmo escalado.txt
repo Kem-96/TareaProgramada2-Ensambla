@@ -5,7 +5,7 @@ int cny = 0;
 
 ciclo:
 if(cnt < 2){
-	if (cny < 2){
+	if (cny < 3){
 		copia el pixel en (posx, posy)
 		posx += 1
 		cny++
@@ -14,10 +14,11 @@ if(cnt < 2){
 	posx -= 2
 	cnt++
 }
+ciclo2:
 posy -= 2
 
-if (posx+2 < ancho)
-	posx += 2
+if (posx+6 < ancho)
+	posx += 6
 else
 	if (posy+2 < alto)
 		posy += 2

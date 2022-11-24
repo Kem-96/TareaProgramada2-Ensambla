@@ -1,0 +1,29 @@
+;Mascara de bits bajos
+        ;mov [temp], word 255
+        ;vpbroadcastw ymm1, [temp]
+        ;Mascara de bits altos
+        ;mov [temp], word 65280
+        ;vpbroadcastw ymm2, [temp]
+
+        mov rcx, [colores]
+        vmovups ymm0, [rcx+r9]
+        ;Bits bajos
+        ;vpand ymm3, ymm0, ymm1
+        ;Bts altos
+        ;vpand ymm4, ymm0, ymm2
+        ;Shift logical right
+        ;vpsrlw ymm4, ymm4, 1
+        mov [x1], byte 128
+        vpbroadcastb ymm1, [x1]
+        vpaddusb ymm0, ymm0, ymm1
+        vpbroadcastb ymm5, [valCont]
+        vpmullw ymm0, ymm0, ymm5
+        vpsubusb ymm0, ymm0, ymm1
+        ;vpmullw ymm4, ymm5, ymm4
+
+        ;Shift logical left
+        ;vpsllw ymm4, ymm4, 1
+
+        ;vpaddusb ymm6, ymm3, ymm4
+        vmovups [rcx+r9], ymm0
+        ret

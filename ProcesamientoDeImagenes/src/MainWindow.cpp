@@ -13,7 +13,11 @@ std::vector<Color> escalado;
 int brillosito = 90;
 int iteraciones = 0;
 Imagen abrido(0, 0);
+int nuevoAncho = 0;
+int nuevoAlto = 0;
 int valCont = 2;
+int posx = 0;
+int posy = 0;
 
 extern "C" char inicio();
 extern "C" char masBrilloAux();
@@ -22,7 +26,7 @@ extern "C" char negativo();
 extern "C" char negativoAux();
 extern "C" void brilloAux();
 extern "C" void contrasteAux();
-extern "C" void escaladoAux();
+extern "C" void escala2();
 
 std::string path = "";
 MainWindow::MainWindow(QWidget *parent)
@@ -121,15 +125,28 @@ void MainWindow::on_BotonNegativo_clicked()
 
 void MainWindow::on_BotonEscalado_clicked()
 {
+    nuevoAncho = (abrido.getAncho()*2);
+    nuevoAlto = (abrido.getAlto()*2);
+
+    escalado.resize(nuevoAncho*nuevoAlto);
+
+    abrido.getAlto() = nuevoAlto;
+    abrido.getAncho() = nuevoAncho;
+
+    nuevoAncho = nuevoAncho*3;
+
     inicializacion();
+    escala2();
 
-    escalado.resize(abrido.getAncho()* abrido.getAlto()*4);
-
-    //escaladoAux();
-
-    abrido.getPixeles() = colores;
+    abrido.getPixeles() = escalado;
 
     abrido.Exportar(path + "-copia.bmp");
+
+    QPixmap img(QString::fromStdString(path+"-copia.bmp"));
+    ui->imagenFiltro->setScaledContents(true);
+    ui->imagenFiltro->setPixmap(img);
+
+    std::cerr << "hola" <<std::endl;
 
 }
 
@@ -139,7 +156,6 @@ void MainWindow::on_Button_Disminucionbrillo_clicked()
     inicializacion();
 
     menosBrilloAux();
-
 
     abrido.getPixeles() = colores;
 
