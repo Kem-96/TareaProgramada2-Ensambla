@@ -8,20 +8,18 @@
 #include <string>
 #include <vector>
 
-
 std::vector<Color> colores;
-int brillosito = 255;
+int brillosito = -150;
 int iteraciones = 0;
-int opt = 0;
-std::string path = "";
 
 extern "C" char inicio();
-extern "C" char masBrillo();
-extern "C" char menosBrillo();
+extern "C" char masBrilloAux();
+extern "C" char menosBrilloAux();
 extern "C" char negativo();
 extern "C" void brilloAux();
 extern "C" void contraste();
 
+std::string path = "";
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -38,10 +36,8 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
-
 void MainWindow::on_BotonAjusteBrillo_clicked()
-{    
+{
     Imagen abrido(0, 0);
 
     abrido.Lectura(path);
@@ -50,17 +46,26 @@ void MainWindow::on_BotonAjusteBrillo_clicked()
     int alto = abrido.getAlto();
 
     colores.resize(ancho*alto);
-    iteraciones = ((colores.size()*3)/32)+1;
+    iteraciones = ((colores.size()*3)/32);
     std::cout << iteraciones << std::endl;
 
     colores = abrido.getPixeles();
 
     inicio();
+    if (brillosito > 0)
+        masBrilloAux();
+    else{
+        brillosito = abs(brillosito);
+        menosBrilloAux();
+    }
 
-    brilloAux();
     abrido.getPixeles() = colores;
 
     abrido.Exportar(path + "-copia.bmp");
+
+    QPixmap img(QString::fromStdString(path+"-copia.bmp"));
+    ui->imagenFiltro->setScaledContents(true);
+    ui->imagenFiltro->setPixmap(img);
 
     std::cerr << "hola" <<std::endl;
 }

@@ -5,7 +5,7 @@
 
 Color::Color() : r(0), g(0), b(0) {}
 
-Color::Color(unsigned char r, unsigned char g, unsigned char b): r(r), g(g), b(g) {}
+Color::Color(unsigned char r, unsigned char g, unsigned char b): r(r), g(g), b(b) {}
 
 void Color::colorcito(unsigned char rojo, unsigned char verde, unsigned char azul){
     r = rojo;
