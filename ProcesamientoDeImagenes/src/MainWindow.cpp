@@ -13,6 +13,7 @@ std::vector<Color> escalado;
 int brillosito = 90;
 int iteraciones = 0;
 Imagen abrido(0, 0);
+int valCont = 2;
 
 extern "C" char inicio();
 extern "C" char masBrilloAux();
@@ -20,7 +21,7 @@ extern "C" char menosBrilloAux();
 extern "C" char negativo();
 extern "C" char negativoAux();
 extern "C" void brilloAux();
-extern "C" void contraste();
+extern "C" void contrasteAux();
 extern "C" void escaladoAux();
 
 std::string path = "";
@@ -150,5 +151,23 @@ void MainWindow::on_Button_Disminucionbrillo_clicked()
 
     std::cerr << "hola" <<std::endl;
 
+}
+
+
+void MainWindow::on_BotonContraste_clicked()
+{
+    inicializacion();
+
+    contrasteAux();
+
+    abrido.getPixeles() = colores;
+
+    abrido.Exportar(path + "-copia.bmp");
+
+    QPixmap img(QString::fromStdString(path+"-copia.bmp"));
+    ui->imagenFiltro->setScaledContents(true);
+    ui->imagenFiltro->setPixmap(img);
+
+    std::cerr << "hola" <<std::endl;
 }
 

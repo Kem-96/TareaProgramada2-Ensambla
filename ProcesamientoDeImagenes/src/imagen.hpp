@@ -27,8 +27,8 @@ public:
     void Exportar(std::string path);//Exporta la imagen basicamente.
     std::vector<Color>& getPixeles();
     void setMatrix(std::vector<Color> matriz);
-    int getAncho();
-    int getAlto();
+    int& getAncho();
+    int& getAlto();
 
 
 private:

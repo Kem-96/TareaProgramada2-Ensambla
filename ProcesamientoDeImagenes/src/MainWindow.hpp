@@ -32,6 +32,8 @@ private slots:
 
     void on_Button_Disminucionbrillo_clicked();
 
+    void on_BotonContraste_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

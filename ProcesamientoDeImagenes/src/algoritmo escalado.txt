@@ -1,0 +1,27 @@
+int posx = 0;
+int posy = 0;
+int cnt = 0;
+int cny = 0;
+
+ciclo:
+if(cnt < 2){
+	if (cny < 2){
+		copia el pixel en (posx, posy)
+		posx += 1
+		cny++
+	}		
+	posy += 1 
+	posx -= 2
+	cnt++
+}
+posy -= 2
+
+if (posx+2 < ancho)
+	posx += 2
+else
+	if (posy+2 < alto)
+		posy += 2
+		posx = 0
+	else
+		fin
+jmp ciclo

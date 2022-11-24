@@ -212,10 +212,10 @@ void Imagen::setMatrix(std::vector<Color> matriz){
     this->m_colores = matriz;
 }
 
-int Imagen::getAncho(){
+int& Imagen::getAncho(){
     return this->m_ancho;
 }
 
-int Imagen::getAlto(){
+int& Imagen::getAlto(){
     return this->m_alto;
 }
