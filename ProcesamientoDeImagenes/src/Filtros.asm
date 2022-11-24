@@ -1,16 +1,18 @@
 bits 64
 default rel
 
-global inicio, masBrilloAux, menosBrilloAux, negativo, brilloAux, contraste
+global inicio, masBrilloAux, menosBrilloAux, negativo, negativoAux, brilloAux, contraste, escaladoAux
 
 
 section .data
 	extern colores
 	extern brillosito
 	extern iteraciones
+
 	
 section .bss
 	factorCorreccion resb 1
+        nega resb 1
 	x1 resb 1
 
 
@@ -63,14 +65,29 @@ menosBrillo:
         vmovups [rcx+r9], ymm2
         ret
 
+negativoAux:
+        cmp r8, byte 0
+        je fin
+        jmp forNegativo
+
+forNegativo:
+        call negativo
+        add r9, byte 32
+        dec r8
+        jmp negativoAux
+
 negativo:
 	mov rcx, [colores]
 	vmovups ymm0, [rcx+r9]
-	mov [brillosito], byte 255
-	vpbroadcastb ymm1, [brillosito]
+        mov [nega], byte 255
+        vpbroadcastb ymm1, [nega]
 	vpsubusb ymm2, ymm1, ymm0
 	vmovups [rcx+r9], ymm2
 	ret
+
+contraste:
+
+escalado:
 
 fin:
 	ret

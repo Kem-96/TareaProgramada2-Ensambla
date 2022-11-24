@@ -24,7 +24,13 @@ private slots:
 
     void on_buton_elegirImagen_clicked();
 
-    //void inicializacion();
+    void inicializacion();
+
+    void on_BotonNegativo_clicked();
+
+    void on_BotonEscalado_clicked();
+
+    void on_Button_Disminucionbrillo_clicked();
 
 private:
     Ui::MainWindow *ui;
