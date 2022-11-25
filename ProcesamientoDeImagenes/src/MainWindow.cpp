@@ -18,6 +18,8 @@ int nuevoAlto = 0;
 int valCont = 2;
 int posx = 0;
 int posy = 0;
+int cont1 = 0;
+int cont2 = 0;
 
 extern "C" char inicio();
 extern "C" char masBrilloAux();
@@ -125,6 +127,8 @@ void MainWindow::on_BotonNegativo_clicked()
 
 void MainWindow::on_BotonEscalado_clicked()
 {
+    inicializacion();
+
     nuevoAncho = (abrido.getAncho()*2);
     nuevoAlto = (abrido.getAlto()*2);
 
@@ -135,8 +139,9 @@ void MainWindow::on_BotonEscalado_clicked()
 
     nuevoAncho = nuevoAncho*3;
 
-    inicializacion();
     escala2();
+
+    std::cout << cont1  << " " << cont2 << std::endl;
 
     abrido.getPixeles() = escalado;
 

@@ -14,6 +14,8 @@ section .data
         extern valCont
         extern posx
         extern posy
+        extern cont1
+        extern cont2
 
 	
 section .bss
@@ -27,10 +29,10 @@ section .bss
 section .text
 
 inicio:
-;--Areglar los pixeles sobrantes, o sea el caso donde se tratan mas o menos de 32 bytes.
-
 	xor r8, r8
 	xor r9, r9
+        xor r10, r10
+        xor rdx, rdx
         xor rbx, rbx
         xor rcx, rcx
 	mov r8, [iteraciones]
@@ -126,8 +128,34 @@ contraste:
         ret
 
 escala2:
+        ;Solo cambia los dos primeros pixeles...
+        call offset
+        mov rcx, [colores]
+        mov rax, [escalado]
+        mov cl, [rcx+r9]
+        mov [rax+r9], cl
+        add r9, 3
+        mov [rax+r9], cl
+        sub r9, 2
+        mov rax,[cont2]
+        inc rax
+        mov [cont2], rax
+        cmp rax, 3
+        jl escala2
+        jge fin
 
-
+offset:
+        ;Calcula el offset de los pixeles en relacion con la imagen original.
+        mov r8, [posx]
+        mov r9, [posy]
+        mov rax, 3
+        mul r9
+        mov r9, rax
+        mov rax, [nuevoAncho]
+        mul r9
+        mov r9, rax
+        add r9, r8
+        ret
 
 fin:
 	ret
